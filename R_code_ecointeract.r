@@ -12,7 +12,22 @@ data(meuse)
 
 View(meuse)
 
+head(meuse)
 
+names(meuse)
 
+summary(meuse)
 
+plot(cadmium, zinc) # error!
 
+plot(meuse$cadmium, meuse$zinc)
+
+cad <- meuse$cadmium
+zin <- meuse$zinc
+plot(cad, zin)
+
+attach(meuse)
+plot(cadmium, zinc)
+# detach(meuse)
+
+pairs(meuse)
