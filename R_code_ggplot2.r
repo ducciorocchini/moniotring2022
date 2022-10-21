@@ -34,6 +34,20 @@ geom_polygon()
 setwd("~/lab/")
 
 covid <- read.table("covid_agg.csv")
+covid <- read.table("covid_agg.csv", header=T)
+
+covid
+
+summary(covid)
+
+
+ggplot(covid, aes(x=lon, y=lat)) + geom_point(col="red")
+
+ggplot(covid, aes(x=lon, y=lat, size=cases)) + geom_point(col="red")
+
+
+
+
 
 
 
