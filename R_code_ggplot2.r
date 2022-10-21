@@ -30,6 +30,13 @@ geom_line(col="blue")
 ggplot(d, aes(x=virus, y=death)) + 
 geom_polygon()
 
+# let's use our own data!
+setwd("~/lab/")
+
+covid <- read.table("covid_agg.csv")
+
+
+
 
 
 
