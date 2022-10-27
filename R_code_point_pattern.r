@@ -31,3 +31,6 @@ points(covid_planar, pch=17, col="blue")
 
 # exercise
 # change the colours
+cln <- colorRampPalette(c("blue", "red", "yellow", "cyan", "coral", "chartreuse"))(100)
+plot(density_map, col=cln)
+points(covid_planar, pch=17, col="blue")
