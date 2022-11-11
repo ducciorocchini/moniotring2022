@@ -30,3 +30,16 @@ par(mfrow=c(1,2))
 plot(p224r63_2011[[1]], col=cl)
 plot(p224r63_2011[[2]], col=cl)
 
+#plot(p224r63_2011$B1_sre[[1]], col=cl)
+#error
+plot(p224r63_2011$B1_sre, col=cl)
+plot(p224r63_2011[[1]], col=cl)
+
+# multiframe with 4 images (2x2)
+par(mfrow=c(2,2))
+plot(p224r63_2011[[1]], col=cl)
+plot(p224r63_2011[[2]], col=cl)
+plot(p224r63_2011[[3]], col=cl)
+plot(p224r63_2011[[4]], col=cl)
+
+
