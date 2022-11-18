@@ -42,4 +42,14 @@ plot(p224r63_2011[[2]], col=cl)
 plot(p224r63_2011[[3]], col=cl)
 plot(p224r63_2011[[4]], col=cl)
 
+#Exercise: plot the four bands with different legends (colour ramps)
+par(mfrow=c(2,2))
+clb <- colorRampPalette(c('dark blue','blue','light blue'))(100) # 
+
+
+
+colorRampPalette(c('dark blue','blue','light blue'))(100) # 
+
+
+
 
