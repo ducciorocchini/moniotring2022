@@ -107,6 +107,22 @@ difnir <- p224r63_1988[[4]] - p224r63_2011[[4]]
 cl <- colorRampPalette(c('orange','yellow','black'))(100) # 
 plot(difnir, col=cl)
 
+####### Difference Vegetation Index
+
+# Recent DVI (2011)
+
+dvi2011 <- p224r63_2011[[4]] - p224r63_2011[[3]]
+dvi1988 <- p224r63_1988[[4]] - p224r63_1988[[3]]
+
+difdvi <- dvi1988 - dvi2011
+cl <- colorRampPalette(c('blue','white','red'))(100) #
+plot(difdvi, col=cl)
+
+
+
+
+
+
 
 
 
