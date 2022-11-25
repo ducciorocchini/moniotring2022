@@ -2,6 +2,11 @@
 
 library(raster)
 library(RStoolbox) # for classification
+library(ggplot2) # for the final histogram plot
+# install.packages("patchwork")
+library(patchwork)
+# install.packages("viridis")
+library(viridis)
 
 setwd("~/lab/") # Linux
 
@@ -64,8 +69,54 @@ freq(d2c$map)
 f2006 <- 178195 / (164531+178195)
 h2006 <- 164531 / (164531+178195)
 
+# 1992 vs. 2006
+# 1992
+# forest: 0.8976859
+# human impact: 0.1023141
 
+# 2006
+# forest: 0.5199343
+# human impact: 0.4800657
 
+landcover <- c("Forest", "Humans")
+percent_1992 <- c(89.77, 10.23)
+percent_2006 <- c(51.99, 48.01)
+
+perc <- data.frame(landcover, percent_1992, percent_2006) +
+
+# let's put it in a multiframe
+# par(mfrow=c(2,1)) -> now you can destroy this in your  life!
+
+p1 <- ggplot(perc, aes(x=landcover, y=percent_1992, color=landcover)) + 
+geom_bar(stat="identity", fill="white")
+
+p2 <- ggplot(perc, aes(x=landcover, y=percent_2006, color=landcover)) + 
+geom_bar(stat="identity", fill="white")
+
+p1 + p2
+
+p1 / p2
+
+## ggplot examples
+
+#rgb # band 1 = NIR
+plotRGB(l1992, r=1, g=2, b=3, stretch="lin")
+ggRGB(l1992, 1, 2, 3)
+
+dvi1992 <- l1992[[1]] - l1992[[2]]
+plot(dvi1992)
+
+ggplot() +
+geom_raster(dvi1992, mapping=aes(x=x, y=y, fill=layer)) +
+scale_fill_viridis(option="viridis")
+
+ggplot() +
+geom_raster(dvi1992, mapping=aes(x=x, y=y, fill=layer)) +
+scale_fill_viridis(option="magma")
+
+# Exercise: with the patchwork package
+# put two graphs one beside the other
+# with two different viridis color ramps
 
 
 
