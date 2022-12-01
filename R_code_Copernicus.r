@@ -17,5 +17,30 @@ snow
 # with ggplot and viridis
 
 
+ggplot() +
+geom_raster(snow, mapping=aes(x=x, y=y, fill=Snow.Cover.Extent)) +
+scale_fill_viridis
+
+ggplot() +
+geom_raster(snow, mapping = aes(x=x, y=y, fill=Snow.Cover.Extent)) +
+scale_fill_viridis(option="inferno")
+
+ext <- c(-20, 70, 20, 75)
+snow.europe <- crop(snow, ext)
+
+ggplot() +
+geom_raster(snow.europe, mapping = aes(x=x, y=y, fill=Snow.Cover.Extent)) +
+scale_fill_viridis(option="inferno")
+
+# plot the two sets with the patchwork package
+p1 <- ggplot() +
+geom_raster(snow, mapping = aes(x=x, y=y, fill=Snow.Cover.Extent)) +
+scale_fill_viridis(option="inferno")
+
+p2 <- ggplot() +
+geom_raster(snow.europe, mapping = aes(x=x, y=y, fill=Snow.Cover.Extent)) +
+scale_fill_viridis(option="inferno")
+
+p1 + p2 
 
 
