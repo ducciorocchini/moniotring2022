@@ -27,5 +27,15 @@ lst <- list.files(path=path,pattern="asc$",full.names = T) #
 
 preds <- stack(lst)
 
+# Model
+datasdm <- sdmData(train = species, predictors = preds)
+
+m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods = "glm")
+
+p1 <- predict(m1, newdata=preds) 
+
+plot(p1)
+
+finalstack <- stack(preds, p1)
 
 
